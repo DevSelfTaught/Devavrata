@@ -38,7 +38,8 @@ export default {
     'bootstrap/dist/css/bootstrap.css',
     "@/assets/css/nucleo-icons.css",
     "@/assets/css/nucleo-svg.css",
-    "@/assets/css/material-dashboard.css"
+    "@/assets/css/material-dashboard.css",
+    "@/assets/css/main.css",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

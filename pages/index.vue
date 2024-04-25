@@ -1,13 +1,11 @@
 <template>
-    <div class="container-fluid py-4">
-      <Rowone />
+  <div class="container-fluid py-4">
+    <Rowone />
 
-      <TableSale />
-    </div>
+    <TableSale />
+  </div>
 </template>
 
 <script>
-  export default {
-
-  }
+export default {};
 </script>
