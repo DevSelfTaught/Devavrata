@@ -65,12 +65,13 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '',
+    baseURL: 'https://jljubi3sud.execute-api.ap-southeast-1.amazonaws.com/prod/',
     mode: "cors"
   },
 
@@ -80,45 +81,45 @@ export default {
 
   // middleware
   router: {
-    // middleware: ['auth']
+    middleware: ['auth']
   },
 
   // authentication
-  // auth: {
-  //   strategies: {
-  //     local: {
-  //       scheme: 'refresh',
-  //       token: {
-  //         property: 'IdToken',
-  //         maxAge: 1800,
-  //         global: true,
-  //         // type: 'Bearer'
-  //       },
-  //       refreshToken: {
-  //         property: 'RefreshToken',
-  //         data: 'RefreshToken',
-  //         maxAge: 60 * 60 * 24 * 30
-  //       },
-  //       user: {
-  //         property: false,
-  //         autoFetch: true
-  //       },
-  //       // api yang dipanggil
-  //       endpoints: {
-  //         login: { url: '/signin-account', method: 'post' },
-  //         refresh: { url: '/refresh-token', method: 'post' },
-  //         user: { url: '/get-account', method: 'get' },
-  //         logout: { url: '/signout-account', method: 'post' }
-  //       },
-  //       // autoLogout: false
-  //     }
-  //   },
-  //   redirect: {
-  //     login: '/login',
-  //     logout: '/login',
-  //     callback: '/login',
-  //     home: false
-  //   }
-  // }
+  auth: {
+    strategies: {
+      local: {
+        scheme: 'refresh',
+        token: {
+          property: 'IdToken',
+          maxAge: 1800,
+          global: true,
+          // type: 'Bearer'
+        },
+        refreshToken: {
+          property: 'RefreshToken',
+          data: 'RefreshToken',
+          maxAge: 60 * 60 * 24 * 30
+        },
+        user: {
+          property: false,
+          autoFetch: true
+        },
+        // api yang dipanggil
+        endpoints: {
+          login: { url: '/signin-account', method: 'post' },
+          refresh: { url: '/refresh-token', method: 'post' },
+          user: { url: '/get-account', method: 'get' },
+          logout: { url: '/signout-account', method: 'post' }
+        },
+        // autoLogout: false
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: '/login',
+      home: false
+    }
+  }
 
 }
