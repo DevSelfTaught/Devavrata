@@ -1,5 +1,8 @@
 <template>
-<body class="bg-gray-200">
+  <div>
+    <nuxt />
+  </div>
+  <!-- <body class="bg-gray-200">
 
   <main class="main-content  mt-0">
     <div class="page-header align-items-start min-vh-100" style="background-image: url('zamrud-login.jpg');">
@@ -38,15 +41,11 @@
       </div>
     </div>
   </main>
-</body>
+</body> -->
 </template>
 
 <script>
-  export default {
-
-  }
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
