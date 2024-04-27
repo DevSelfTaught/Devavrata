@@ -72,7 +72,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://jljubi3sud.execute-api.ap-southeast-1.amazonaws.com/prod/',
+    baseURL: 'https://jbdp34jfc1.execute-api.ap-southeast-1.amazonaws.com/prod/',
     mode: "cors"
   },
 
