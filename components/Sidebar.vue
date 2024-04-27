@@ -37,6 +37,12 @@
                 </nuxt-link>
               </li>
               <li class="nav-item">
+                <nuxt-link class="nav-link text-white" to="/dashboard/request">
+                  <span class="sidenav-mini-icon"> H </span>
+                  <span class="sidenav-normal ms-2 ps-1"> Request </span>
+                </nuxt-link>
+              </li>
+              <li class="nav-item">
                 <nuxt-link class="nav-link text-white" to="/dashboard/products">
                   <span class="sidenav-mini-icon"> P </span>
                   <span class="sidenav-normal ms-2 ps-1"> Products </span>

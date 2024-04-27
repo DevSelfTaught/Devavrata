@@ -1,0 +1,16 @@
+input.input-date {
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: none;
+}
+.input-date {
+  font-size: 12px !important;
+}
+input.form-control {
+  border: 1px solid grey;
+}
+.modal-title {
+  font-family: "Poppins", sans-serif;
+}
+
+/* input */

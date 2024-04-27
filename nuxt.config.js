@@ -53,7 +53,8 @@ export default {
   components: {
     dirs: [
       '~/components',
-      '~/components/dashboard'
+      '~/components/dashboard',
+      '~/components/dashboard/request',
     ]
   },
 
