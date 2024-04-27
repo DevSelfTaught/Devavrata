@@ -95,7 +95,6 @@
         </div>
       </div>
     </div>
-    <ModalRequest />
   </div>
 </template>
 

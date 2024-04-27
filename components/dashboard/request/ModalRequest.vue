@@ -33,9 +33,8 @@
                 <input
                   class="form-control"
                   id="items"
-                  name="items"
+                  name="Items"
                   type="text"
-                  required
                 />
               </div>
               <div class="mb-3">
@@ -43,21 +42,20 @@
                 <input
                   class="form-control"
                   id="nominal"
-                  name="nominal"
+                  name="Price"
                   type="number"
-                  required
                 />
               </div>
             </div>
             <div class="modal-footer">
               <button
-                type="submit"
+                type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">Understood</button>
+              <button type="submit" class="btn btn-primary">Understood</button>
             </div>
           </form>
         </div>

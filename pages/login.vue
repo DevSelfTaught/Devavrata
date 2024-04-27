@@ -4,11 +4,7 @@
       <div class="row">
         <div class="col-left col-12 col-md-6 col-lg-5">
           <div class="left-side">
-            <img
-              src="~/assets/img/logos/logo-ipsum.png"
-              class="logo-ipsum"
-              alt=""
-            />
+            <img src="~/assets/img/logos/logo.png" class="logo-ipsum" alt="" />
             <h2>Log in to your Account</h2>
             <p>Welcome back! Enter your data account</p>
             <div class="dividen"></div>
@@ -172,7 +168,7 @@ export default {
   margin-block: auto;
 }
 img.logo-ipsum {
-  height: 40px !important;
+  height: 32px !important;
 }
 
 .dividen {
@@ -191,7 +187,7 @@ form {
 
 h2 {
   font-size: 24px;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 5px;
 }
 p {
