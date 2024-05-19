@@ -1,32 +1,128 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300&family=Roboto:wght@700&family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 .montserrat {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
 }
 
-.work-sans {
-  font-family: "Work Sans", sans-serif;
+.pt-sans {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.karla {
+  font-family: "Karla", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
 }
 
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.all {
+  padding-bottom: 100px;
+  padding-top: 20px;
 }
 
-.background-header-img {
+@media screen and (max-width: 576px) {
+  .media {
+    width: 100% !important;
+  }
+}
+/* tablet */
+@media screen and (max-width: 991px) {
+  .media {
+    width: 70%;
+  }
+}
+
+.animate_animated.animate_fadeInDown {
+  --animate-duration: 3.5s;
+}
+
+.background-img {
   /* The image used */
-  background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background: linear-gradient(
+      180deg,
+      rgba(19, 16, 34, 0.35) 0%,
+      rgba(19, 16, 34, 0.5) 100%
+    ),
+    url("~/assets/img/bg_login.jpg");
   height: 100%;
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+.icon-text input[type="text"] {
+  width: 100%;
+  font-size: 16px;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAa9JREFUSEu11D1IllEYxvGfWVCQFDREDUIUSIRDbSURiRj0AY1N0hBIDtUaRFvQUlJLUEE2uxQUTWmEJC5NDTlUQ9lSgRDS0Oe54bzw9H49zyN4lrOc+3+uc+7runus0epZI64q4AHcxH5swQc8xA386SSsDHwYz7EBX/AJg1iPJzi1GvBGvMX2tJ9Jih9nyDZM4STGcbcdvJviUPsyge9goql4Bz7n14zUBZ/DPVzG9TbFv7GE/rrgI3jRQfHODI3/r614U3ZAOGEY81lZNG4ap3ERt+sqjvNj2Vo/8Si7YjSB9+XGhkN+rQYcNWeTfyextQB4li6JHkQD264yHzeKwse7CgH5WpbYbuDw7wkcwF70FmDf8BqvMFv1K6I5l1Jcr6bY9pUpw0z2+WLxbDvF4d34vxWczyH52DQXNiNmyLXklmP4kaP+rgFvBh/HU3zHIbwpUbwOD7J7FnAQf6OmGRzPOpqdEBOsyoqZEgJ2Yyj/ewt4OZOK1qoCv4BbxcAUFYed3ncbLF1uaAyseGX4/j/Fe3A/ZX8upelKFZmFMy21VQNS857W5tUGdCr4B9DKSxedSHTyAAAAAElFTkSuQmCC");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
 
+.icon-password input[type="password"] {
+  width: 100%;
+  font-size: 16px;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAYlJREFUSEvF1L9LV2EUx/GX0ZIWtgQhCM4NRQ0uQfRjEISyrSWiJdrElhRCbIjIBlMcnSSktSKIIoogqNE/QBJyE5GIFget58jzhevt+73eL1+kBy4Xzj3n/Xye53zu6XJAq+uAuOqAT+MZLrGbv4EZPMV2K2H7gYfwBoexiTXERlEX8Wv40wxeBT6C7ziJu1jIkH68xLn0/Raetwu+mopf4xWul4rP4wveYrhd8CjmMJ7vs1h/CL/xK5/oH3bVVYzlpt3DbBNVP3PseF3FfbiBaFw87/CtSfFEjj1JeV/xvtjIsuJj+JEUNlWxj+f3nKwMvpD8+jmrDCV1VrjmBT7iSqOgDL6IT1jE7TpUDGA1C4r63fXfwd2IOzyF+VIzO1J8H9P5lOsI5zTmREfgh8lKUxm8lfzdi3jH6gh8NP/CZ3ATS4XGdgQOTgyekTQ7zqbZsdwuuMrHjxDD505SvVIAN3wcNr3cym4nsid7anq4mBYbT7YCR3wQD3KD6vI/4DF2qsB1YZV5fwHZyFgXjChZRgAAAABJRU5ErkJggg==");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+.btn-submit-color {
+  background: linear-gradient(260deg, #8f0c26, #c21f3f, #e52d51);
+  transition: 0.3s;
+}
+.btn-submit-color:hover {
+  transform: translate(0, -7px);
+}
+
+a {
+  text-decoration: none;
+}
+.loginPage {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /* background: url('~/assets/img/16326494_rm222-mind-16.svg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 900px) {
+  .loginPage {
+    overflow: scroll;
+    /* background: url('~/assets/img/16326494_rm222-mind-16.svg'); */
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.deva-color {
+  color: #e52d51;
+}
+
+span.deva-color:hover {
+  color: black;
+}
+
+.deva-bg {
+  background-color: #e52d52;
+}
+
+.devabggreen {
+  background-color: #50e650;
+}
+
+.devabgblue {
+  background-color: #4273fa;
+}
+
+.deva-color-black {
+  color: black;
 }

@@ -15,7 +15,9 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css", rel: "stylesheet" },
+      { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' },
     ]
   },
 
@@ -34,7 +36,12 @@ export default {
   components: {
     dirs: [
       '~/components',
-      //'~/components/Home',
+      '~/components/Home',
+      '~/components/Home/Modals',
+      '~/components/Home/Modals/DataKaryawan',
+      '~/components/Home/Modals/RiwayatAbsensi',
+      '~/components/Home/Modals/AbsensiKaryawan',
+
 
     ]
   },
