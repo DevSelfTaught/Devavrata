@@ -3,7 +3,7 @@
       <!-- Modal -->
       <div
         class="modal fade"
-        id="RiwayatAbsensiModalEdit"
+        id="AbsensiKaryawanEdit"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabindex="-1"
@@ -14,7 +14,7 @@
           <div class="modal-content">
             <div class="modal-header devabggreen">
               <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Edit Riwayat Absensi
+                Edit Absensi Karyawan
               </h1>
               <button
                 type="button"
@@ -54,7 +54,7 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-success">Edit</button>
+              <button type="button" class="btn deva-bg text-white">Edit</button>
             </div>
           </div>
         </div>

@@ -1,10 +1,10 @@
 <template>
   <div class="Animation-card">
     <nuxt-link to="/RiwayatAbsensi">
-      <div class="card border-none rounded-4 p-4 mt-4">
-        <div class="py-5">
-          <h4 class="fw-semibold text-center text-dark Animation-inCard karla">
-            Riwayat Absensi Anda
+      <div class="card border-none rounded-4 p-4 mt-4 ">
+        <div class="py-5 ">
+          <h4 class="fw-semibold text-center text-dark Animation-RiwayatAbsensi karla">
+            Riwayat Absensi Nabila
           </h4>
         </div>
       </div>
@@ -29,9 +29,9 @@ export default {};
   background-size: cover;
   background-repeat: no-repeat;
 }
-.Animation-DetailKaryawan {
+.Animation-RiwayatAbsensi {
   animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s; /* don't forget to set a duration! */
+  animation-duration: 1.5s; /* don't forget to set a duration! */
 }
 
 .btn-color-main {

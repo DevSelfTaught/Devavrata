@@ -1,8 +1,6 @@
 <template>
     <div>
-        <Nuxt />
-        <Navbar />
-
+        <nuxt />
     </div>
 </template>
 
@@ -12,6 +10,6 @@
     }
 </script>
 
-<style scoped>
-    
+<style lang="scss" scoped>
+
 </style>

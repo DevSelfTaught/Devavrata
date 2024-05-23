@@ -3,7 +3,7 @@
       <!-- Modal -->
       <div
         class="modal fade"
-        id="ModalView"
+        id="RiwayatAbsensiModalEdit"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabindex="-1"
@@ -12,9 +12,9 @@
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header devabgblue">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Edit
+            <div class="modal-header devabggreen">
+              <h1 class="modal-title fs-5" id="RiwayatAbsensiModalEdit">
+                Edit Riwayat Absensi
               </h1>
               <button
                 type="button"
@@ -37,15 +37,6 @@
                 </div>
                 <div class="mb-3 py-2">
                   <input
-                    type="username"
-                    class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                    name="username"
-                    id="username"
-                    placeholder="Username"
-                  />
-                </div>
-                <div class="mb-3 py-2">
-                  <input
                     type="file"
                     class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
                     name="foto"
@@ -63,7 +54,7 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-success">Edit</button>
+              <button type="button" class="btn deva-bg text-white">Edit</button>
             </div>
           </div>
         </div>

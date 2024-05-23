@@ -13,7 +13,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header devabgblue">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              <h1 class="modal-title fs-5" id="DataKaryawanModalEdit">
                 Edit Data Karyawan
               </h1>
               <button
@@ -65,14 +65,7 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-success">Edit</button>
+              <button type="button" class="btn deva-bg text-white">Edit</button>
             </div>
           </div>
         </div>

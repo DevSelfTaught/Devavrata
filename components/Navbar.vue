@@ -47,7 +47,7 @@
               <div
                 class="userprofile d-flex align-items-center justify-content-center mx-auto"
               >
-                <i class="bi bi-menu-button-fill h2 fw-bold text-secondary"></i>
+                <i class="bi bi-list h2 fw-bold text-secondary"></i>
               </div>
               <div>
                 <p class="fw-semibold text-secondary karla">Menu</p>
@@ -65,10 +65,10 @@
   
   <style scoped>
   .linkActive i {
-    color: black !important;
+    color: #e52d51 !important;
   }
   .linkActive p {
-    color: black !important;
+    color: #e52d51 !important;
   }
   .navbar {
     border-radius: 25px;

@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'absensi-deva',
+    title: 'Devavrata Absensi',
     htmlAttrs: {
       lang: 'en'
     },
@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css", rel: "stylesheet" },
       { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' },
     ]
@@ -37,10 +37,11 @@ export default {
     dirs: [
       '~/components',
       '~/components/Home',
-      '~/components/Home/Modals',
-      '~/components/Home/Modals/DataKaryawan',
-      '~/components/Home/Modals/RiwayatAbsensi',
-      '~/components/Home/Modals/AbsensiKaryawan',
+      '~/components/Table',
+      '~/components/Modals',
+      '~/components/Modals/DataKaryawan',
+      '~/components/Modals/RiwayatAbsensi',
+      '~/components/Modals/AbsensiKaryawan',
 
 
     ]

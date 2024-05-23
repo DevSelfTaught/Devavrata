@@ -1,9 +1,9 @@
 <template>
     <div>
       <!-- Modal -->
-      <div
+      <!-- <div
         class="modal fade"
-        id="AbsensiKaryawanEdit"
+        id="ModalView"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabindex="-1"
@@ -12,9 +12,9 @@
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header devabggreen">
+            <div class="modal-header devabgblue">
               <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Edit Absensi Karyawan
+                Edit
               </h1>
               <button
                 type="button"
@@ -33,6 +33,15 @@
                     id="nama"
                     aria-describedby="helpId"
                     placeholder="Nama"
+                  />
+                </div>
+                <div class="mb-3 py-2">
+                  <input
+                    type="username"
+                    class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
+                    name="username"
+                    id="username"
+                    placeholder="Username"
                   />
                 </div>
                 <div class="mb-3 py-2">
@@ -58,7 +67,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </template>
   

@@ -12,7 +12,7 @@
     >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header devabgblue">
+          <div class="modal-header text-white header-cs-color">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
               Absensi Izin
             </h1>
@@ -28,7 +28,7 @@
               <div class="mb-3 py-2">
                 <input
                   type="text"
-                  class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
+                  class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   name="nama"
                   id="nama"
                   aria-describedby="helpId"
@@ -38,7 +38,7 @@
               <div class="mb-3 py-2">
                 <input
                   type="date"
-                  class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
+                  class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   name="tanggaljam"
                   id="tanggaljam"
                   placeholder="Tanggal & Jam"
@@ -46,7 +46,7 @@
               </div>
               <div class="mb-3 py-2">
                 <select
-                  class="form-select border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
+                  class="form-select border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   aria-label="select example"
                   name="lokasi"
                   id="lokasi"
@@ -66,7 +66,7 @@
               <div class="mb-3 py-2">
                 <input
                   type="file"
-                  class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
+                  class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   name="foto"
                   id="foto"
                   placeholder="Foto"
@@ -74,7 +74,7 @@
               </div>
               <div class="mb-3 py-2">
                 <select
-                  class="form-select border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
+                  class="form-select border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   aria-label="select example"
                   name="lokasi"
                   id="lokasi"
@@ -88,7 +88,7 @@
               <div class="mb-3 py-2">
                 <textarea
                   type="area"
-                  class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
+                  class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   name="keterangan"
                   id="keterangan"
                   placeholder="Keterangan"></textarea>
@@ -115,4 +115,8 @@
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.header-cs-color {
+  background: linear-gradient(260deg, #c4d1f6, #4273fa);
+  }
+</style>

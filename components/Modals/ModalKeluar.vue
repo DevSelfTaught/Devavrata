@@ -12,7 +12,7 @@
     >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header deva-bg">
+          <div class="modal-header text-white header-cs-color">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
               Absensi Keluar
             </h1>
@@ -94,4 +94,8 @@
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+    .header-cs-color {
+    background: linear-gradient(260deg, #E1bfbd, #E52D51);
+  }
+</style>

@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="container py-5">
-          <div class="row text-white deva-bg mb-5 py-3 rounded">
+          <div class="row text-white faq-cs-bg mb-5 py-3 rounded">
             <div class="col-md-12">
               <div class="lc-block text-center">
                 <div editable="rich">
@@ -221,5 +221,9 @@ export default {};
 </script>
 
 <style scoped>
+
+ .faq-cs-bg {
+  background: linear-gradient(80deg, #ad223e, #E52D51);
+ }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="">
-        <button class="btn float-end fs-5 fw-bold " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-sliders"></i></button>
+        <a class="btn float-end fs-5 fw-bold " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-sliders"></i></a>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
               <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu Admin</h5>
@@ -16,7 +16,7 @@
                     </li>
                     <li class="nav-item">
                         <nuxt-link to="AbsensiKaryawan" class="nav-link  px-0 deva-color-black">
-                            <i class="fs-4 bi bi-people-fill"></i> <span class="ms-1  d-sm-inline">Data Absensi Karyawan</span>
+                            <i class="fs-4 bi bi-people-fill"></i> <span class="ms-1  d-sm-inline">Absensi Karyawan</span>
                         </nuxt-link>
                     </li>
                 

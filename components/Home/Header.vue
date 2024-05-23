@@ -31,14 +31,14 @@
   }
   .Animation-1-pf {
     animation: fadeInLeft; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 2.5s; /* don't forget to set a duration! */
+    animation-duration: 1.5s; /* don't forget to set a duration! */
   }
   .Animation-1-wc {
     animation: fadeInLeft; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 1.5s; /* don't forget to set a duration! */
+    animation-duration: 1.0s; /* don't forget to set a duration! */
   }
   .Animation-1-nm {
     animation: fadeInLeft; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 1.5s; /* don't forget to set a duration! */
+    animation-duration: 1.0s; /* don't forget to set a duration! */
   }
   </style>
