@@ -1,7 +1,7 @@
 <template>
     <div class="menu d-flex justify-content-evenly mt-4">
       <!-- menu -->
-      <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#ModalMasuk">
+      <a href="#" @click="tombolmasuk" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#ModalMasuk">
         <div class="d-flex flex-column text-center bg-primaryr animate__animated Animation-1-icon">
           <div
             class="userprofile d-flex align-items-center justify-content-center mb-2 mx-auto"
@@ -48,7 +48,13 @@
   </template>
   
   <script>
-  export default {};
+  export default {
+    methods: {
+      tombolmasuk() {
+        this.$store.dispatch('location/getLocation')
+      }
+    },
+  };
   </script>
   
   <style scoped>

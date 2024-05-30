@@ -54,7 +54,7 @@
           </nuxt-link>
 
             <!-- list menu -->
-            <a @click="logout">
+            <a @click="logout" style="cursor: pointer;">
             <div class="d-flex justify-content-between">
               <div class="d-flex">
                 <div
@@ -83,8 +83,8 @@
     layout: "utama",
     methods: {
       logout() {
-        localStorage.removeItem("card");
-        this.$router.push("/");
+        this.$auth.logout();
+        this.$cookies.remove("AccessToken")
       },
     },
   };

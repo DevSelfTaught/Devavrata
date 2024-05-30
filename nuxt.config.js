@@ -1,6 +1,14 @@
+let development = process.env.NODE_ENV !== 'production'
+
 export default {
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+  server: {
+    host: "0.0.0.0",
+    port: "3000"
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -30,6 +38,9 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: "~/plugins/bootstrap.js", mode : "client"},
+    {src: "~/plugins/cookies.client.js", mode : "client"},
+    {src: "~/plugins/moment.js", mode : "client"},
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,15 +66,49 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
+
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: development ? process.env.API_DEV_URL: process.env.API_PROD_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  router: {
+    middleware: ['auth']
+  },
+  auth: {
+    strategies: {
+      local: {
+        scheme: 'refresh',
+        token: {
+          property: 'IdToken',
+          maxAge: 15,
+          global: true,
+        },
+        refreshToken: {
+          property: 'RefreshToken',
+          data: 'RefreshToken',
+          maxAge: false
+        },
+        endpoints: {
+          login: { url: 'signin-account', method: 'post' },
+          refresh: { url: 'refresh-token', method: 'post' },
+          user: { url: 'get-account', method: 'get' },
+          logout: { url: 'signout-account', method: 'post' }
+        },
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: '/login',
+      home: '/'
+    }
   }
 }
