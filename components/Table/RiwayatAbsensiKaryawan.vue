@@ -1,6 +1,6 @@
 <template>
             <div class="container pt-5">
-          <h1 class="small Montserrat text-secondary">Riwayat Absensi Nabila</h1>
+          <h1 class="small Montserrat text-secondary text-capitalize">Riwayat Absensi {{ $auth.user.name }}</h1>
           <div class="table-responsive animate__animated animate__fadeIn">
             <table
               class="table table-striped table-hover table-borderless text-center shadow"
@@ -16,11 +16,11 @@
               </thead>
               <tbody>
                 <!-- Sample tasks -->
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Status Karyawan</td>
-                  <td>In Progress</td>
-                  <td>In Progress</td>
+                <tr v-for="(data, index) in RiwayatAbsensiKaryawan" :key="index">
+                  <th scope="row">{{ index + 1 }}</th>
+                  <td class=" text-capitalize">{{ data.Nama }}</td>
+                  <td>{{ data.CreatedAt}}</td>
+                  <td class=" text-capitalize">{{ data.SK.split('#')[0] }}</td>
 
                   <td>
                     <div class="d-flex d-xl-flex justify-content-center">
@@ -46,9 +46,12 @@
 </template>
 
 <script>
-    export default {
-        
-    }
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState("RiwayatAbsensiKaryawan", ["RiwayatAbsensiKaryawan"]),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

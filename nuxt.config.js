@@ -26,7 +26,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css", rel: "stylesheet" },
       { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' },
-    ]
+    ],
+    script: [
+      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', type: 'text/javascript' },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

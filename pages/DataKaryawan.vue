@@ -19,8 +19,7 @@
 export default {
   async asyncData({ store }){
     await store.dispatch('datakaryawan/getallkaryawan')
-    const allaccount = store.state.allaccount
-    return{allaccount}
+
   }
 };
 </script>

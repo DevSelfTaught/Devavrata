@@ -16,6 +16,7 @@
               <h1 class="modal-title fs-5" id="DataKaryawanModalEdit">
                 Edit Data Karyawan
               </h1>
+              {{ updateData }}
               <button
                 type="button"
                 class="btn-close"
@@ -24,12 +25,12 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form>
+              <form @submit.prevent="submit">
                 <div class="mb-3 py-2">
                   <input
                     type="text"
                     class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                    name="nama"
+                    name="Name"
                     id="nama"
                     aria-describedby="helpId"
                     placeholder="Nama"
@@ -39,7 +40,7 @@
                   <input
                     type="email"
                     class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                    name="email"
+                    name="Email"
                     id="email"
                     placeholder="Email"
                   />
@@ -48,7 +49,7 @@
                   <input
                     type="text"
                     class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                    name="notelp"
+                    name="Phone"
                     id="notelp"
                     placeholder="No. Telp"
                   />
@@ -57,15 +58,15 @@
                   <input
                     type="text"
                     class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                    name="jabatan"
+                    name="Jabatan"
                     id="jabatan"
                     placeholder="Jabatan"
                   />
                 </div> 
+                <div class="modal-footer">
+                  <button type="submit" class="btn deva-bg text-white">Edit</button>
+                </div>
               </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn deva-bg text-white">Edit</button>
             </div>
           </div>
         </div>
@@ -74,7 +75,45 @@
   </template>
   
   <script>
-  export default {};
+  import Swal from "sweetalert2";
+
+  export default {
+    props: ['updateData'],
+    methods: {
+      async submit() {
+        const data = Object.fromEntries(new FormData(event.target));
+        console.log(data)
+        try {
+          const username = this.$auth.user.preferred_username
+          const result = await this.$axios.$put(
+          `update-account?username=${username}`,
+          data
+        );
+        if (result) {
+          Swal.fire({
+            icon: "success",
+            title: "Berhasil",
+            text: "Berhasil Update Karyawan",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+          this.btn = true;
+          
+        }
+        }catch(error){
+        Swal.fire({
+          icon: "error",
+          title: error,
+          text: "Gagal Update Karyawan",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+        this.btn = true;
+      
+      }
+      }
+    },
+  };
   </script>
   
   <style lang="scss" scoped></style>

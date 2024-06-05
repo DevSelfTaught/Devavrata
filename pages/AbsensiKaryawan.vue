@@ -16,7 +16,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  async asyncData({ store }){
+    const type = "all"
+    await store.dispatch('absensikaryawan/getabsensikaryawan', type)
+  }
+};
 </script>
 
 <style scoped></style>

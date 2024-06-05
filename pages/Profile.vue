@@ -20,8 +20,8 @@
                         alt="User-Profile-Image"
                       />
                     </div>
-                    <h6 class="f-w-600">Hembo Tingor</h6>
-                    <p>Web Designer</p>
+                    <h6 class="f-w-600">{{ $auth.user.name }}</h6>
+                    <p>{{ $auth.user['custom:Jabatan'] }}</p>
                     <i
                       class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
                     ></i>
@@ -35,15 +35,15 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <p class="m-b-10 f-w-600">Email</p>
-                        <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
+                        <h6 class="text-muted f-w-400">{{ $auth.user.email }}</h6>
                       </div>
                       <div class="col-sm-6">
                         <p class="m-b-10 f-w-600">Phone</p>
-                        <h6 class="text-muted f-w-400">98979989898</h6>
+                        <h6 class="text-muted f-w-400">{{ $auth.user.phone_number }}</h6>
                       </div>
                       <div class="col-sm-6 pt-lg-3">
                         <p class="m-b-10 f-w-600">Jabatan</p>
-                        <h6 class="text-muted f-w-400">Web</h6>
+                        <h6 class="text-muted f-w-400">{{ $auth.user['custom:Jabatan'] }}</h6>
                       </div>
                     </div>
                   </div>

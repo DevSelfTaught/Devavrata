@@ -36,6 +36,7 @@
                   readonly
                   aria-describedby="helpId"
                   placeholder="Nama"
+                  required
                 />
               </div>
               <div class="mb-3 py-2">
@@ -49,6 +50,7 @@
                   readonly
                   aria-describedby="helpId"
                   placeholder="Tanggal"
+                  required
                 />
               </div>
               <div class="mb-3 py-2">
@@ -57,6 +59,7 @@
                   aria-label="select example"
                   name="Lokasi"
                   id="lokasi"
+                  required
                 >
                   <option value="" selected>Lokasi</option>
                   <option
@@ -67,15 +70,6 @@
                   >
                     {{ data }}
                   </option>
-                  <!-- <option selected>Lokasi</option>
-                  <option>Okasaan Laundry Seruling</option>
-                  <option>Okasaan Laundry Sunter Park View</option>
-                  <option>Okasaan Laundry Gading Mediterania</option>
-                  <option>Okasaan Laundry Tabanas</option>
-                  <option>Okasaan Laundry Ciputat</option>
-                  <option>Okasaan Laundry Pademangan</option>
-                  <option>Okasaan Laundry Duri Mas</option>
-                  <option>Okasaan Laundry Puri Park View</option> -->
                 </select>
               </div>
               <div class="mb-3 py-2">
@@ -96,7 +90,9 @@
                   Close
                 </button>
                 <span>
-                  <button v-if="btn" type="submit" class="btn btn-success">Submit</button>
+                  <button v-if="btn" type="submit" class="btn btn-success">
+                    Submit
+                  </button>
                   <button v-else class="btn btn-success" type="button" disabled>
                     <span
                       class="spinner-border spinner-border-sm"
@@ -137,32 +133,40 @@ export default {
   },
   methods: {
     async masuk() {
-      this.btn = false
+      console.log(this.$auth);
+      this.btn = false;
       const data = Object.fromEntries(new FormData(event.target));
-      delete data.Photo
-      data['Nama'] = this.$auth.user.name
-      data['Tanggal'] = this.date
+      delete data.Photo;
+      delete data.Nama;
+      delete data.CreatedAt;
+      const tanggal_sekarang = moment().tz("Asia/Jakarta");
+      const currentTime = tanggal_sekarang.format("YYYY-MM-DD HH:mm");
+      data["CreatedAt"] = currentTime;
       try {
-        const result = await this.$axios.$post(`insert-absensi?type=masuk`, data)
+        const result = await this.$axios.$post(
+          `insert-absensi?type=masuk`,
+          data
+        );
         if (result) {
           Swal.fire({
-          icon: "success",
-          title: "Berhasil",
-          text: "Absensi Berhasil",
-          showConfirmButton: false,
-        });
-        this.btn = true
+            icon: "success",
+            title: "Berhasil",
+            text: "Absensi Berhasil",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+          this.btn = true;
         }
       } catch (error) {
         Swal.fire({
           icon: "error",
           title: error,
           text: "Absensi Gagal",
+          timer: 2000,
           showConfirmButton: false,
         });
-        this.btn = true
+        this.btn = true;
       }
-      console.log(data);
     },
   },
 };

@@ -24,65 +24,74 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form @submit.prevent="perizinan">
               <div class="mb-3 py-2">
                 <input
                   type="text"
-                  class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
-                  name="nama"
+                  class="form-control border-0 border-bottom border-success opacity-50 rounded-0 Poppins"
+                  name="Nama"
                   id="nama"
+                  :value="$auth.user.name"
+                  disabled
+                  readonly
                   aria-describedby="helpId"
                   placeholder="Nama"
+                  required
                 />
               </div>
               <div class="mb-3 py-2">
                 <input
-                  type="date"
-                  class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
-                  name="tanggaljam"
-                  id="tanggaljam"
-                  placeholder="Tanggal & Jam"
+                  type="text"
+                  class="form-control border-0 border-bottom border-success opacity-50 rounded-0 Poppins"
+                  name="CreatedAt"
+                  id="tanggal"
+                  :value="date"
+                  disabled
+                  readonly
+                  aria-describedby="helpId"
+                  placeholder="Tanggal"
+                  required
                 />
               </div>
               <div class="mb-3 py-2">
                 <select
-                  class="form-select border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
+                  class="form-select border-0 text-capitalize border-bottom border-success opacity-50 rounded-0 Poppins"
                   aria-label="select example"
-                  name="lokasi"
+                  name="Lokasi"
                   id="lokasi"
-                  
+                  required
                 >
-                  <option selected>Lokasi</option>
-                  <option>Okasaan Laundry Seruling</option>
-                  <option>Okasaan Laundry Sunter Park View</option>
-                  <option>Okasaan Laundry Gading Mediterania</option>
-                  <option>Okasaan Laundry Tabanas</option>
-                  <option>Okasaan Laundry Ciputat</option>
-                  <option>Okasaan Laundry Pademangan</option>
-                  <option>Okasaan Laundry Duri Mas</option>
-                  <option>Okasaan Laundry Puri Park View</option>
+                  <option value="" selected>Lokasi</option>
+                  <option
+                    class="text-capitalize"
+                    v-for="(data, index) in location"
+                    :key="index"
+                    :value="data"
+                  >
+                    {{ data }}
+                  </option>
+
                 </select>
               </div>
               <div class="mb-3 py-2">
                 <input
                   type="file"
                   class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
-                  name="foto"
-                  id="foto"
-                  placeholder="Foto"
+                  name="Photo"
+                  id="Photo"
+                  placeholder="Photo"
                 />
               </div>
               <div class="mb-3 py-2">
                 <select
                   class="form-select border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   aria-label="select example"
-                  name="lokasi"
+                  name="Jenis"
                   id="lokasi"
-                  
+                  required
                 >
-                  <option selected>Perizinan</option>
-                  <option>Izin</option>
-                  <option>Sakit</option>
+                  <option selected value="izin" >Izin</option>
+                  <option value="sakit">Sakit</option>
                 </select>
               </div>
               <div class="mb-3 py-2">
@@ -91,19 +100,32 @@
                   class="form-control border-0 border-bottom border-primary opacity-50 rounded-0 Poppins"
                   name="keterangan"
                   id="keterangan"
+                  required
                   placeholder="Keterangan"></textarea>
               </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <span>
+                  <button v-if="btn" type="submit" class="btn btn-success">
+                    Submit
+                  </button>
+                  <button v-else class="btn btn-success" type="button" disabled>
+                    <span
+                      class="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Loading...
+                  </button>
+                </span>
+              </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-success">Submit</button>
           </div>
         </div>
       </div>
@@ -112,7 +134,63 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+import moment from "moment-timezone";
+import Swal from "sweetalert2";
+export default {
+  data() {
+    return {
+      date: "",
+      btn: true,
+    };
+  },
+  mounted() {
+    const tanggal_sekarang = moment().tz("Asia/Jakarta");
+    const currentTime = tanggal_sekarang.format("YYYY-MM-DD HH:mm");
+    this.date = currentTime;
+  },
+  computed: {
+    ...mapState("location", ["location"]),
+  },
+  methods: {
+    async perizinan() {
+      console.log(this.$auth);
+      this.btn = false;
+      const data = Object.fromEntries(new FormData(event.target));
+      delete data.Photo;
+      delete data.Nama;
+      delete data.CreatedAt;
+      const tanggal_sekarang = moment().tz("Asia/Jakarta");
+      const currentTime = tanggal_sekarang.format("YYYY-MM-DD HH:mm");
+      data["CreatedAt"] = currentTime;
+      try {
+        const result = await this.$axios.$post(
+          `insert-absensi?type=izin`,
+          data
+        );
+        if (result) {
+          Swal.fire({
+            icon: "success",
+            title: "Berhasil",
+            text: "Absensi Berhasil",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+          this.btn = true;
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: error,
+          text: "Absensi Gagal",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+        this.btn = true;
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>

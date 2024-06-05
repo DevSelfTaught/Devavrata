@@ -80,7 +80,7 @@ export default {
         Swal.fire({
           icon: "error",
           title: error,
-          text: message,
+          text: error,
           showConfirmButton: false,
         });
       }

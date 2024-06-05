@@ -3,8 +3,8 @@
     <nuxt-link to="/RiwayatAbsensi">
       <div class="card border-none rounded-4 p-4 mt-4 ">
         <div class="py-5 ">
-          <h4 class="fw-semibold text-center text-dark Animation-RiwayatAbsensi karla">
-            Riwayat Absensi Nabila
+          <h4 class="fw-semibold text-center text-dark Animation-RiwayatAbsensi karla text-capitalize">
+            Riwayat Absensi {{ $auth.user.name.split(' ')[0] }}
           </h4>
         </div>
       </div>

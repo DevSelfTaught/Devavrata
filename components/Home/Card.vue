@@ -5,9 +5,9 @@
         <div class="d-flex justify-content-between">
           <div class="">
             <i class="bi bi-person-vcard-fill h3 text-dark"></i>
-            <h2 class="pt-1 fw-semibold text-dark Animation-inCard karla">Nabila</h2>
+            <h2 class="pt-1 fw-semibold text-dark Animation-inCard karla">{{ $auth.user.name }}</h2>
             <hr class="w-75 border-dark" />
-            <h6 class="text-dark Animation-inCard karla">Operation Manager</h6>
+            <h6 class="text-dark Animation-inCard karla">{{ $auth.user['custom:Jabatan'] }}</h6>
           </div>
 
           <img
@@ -20,7 +20,7 @@
         <div class="mb-4"></div>
         <div>
           <p class="text-black Animation-inCard karla">No. Telp</p>
-          <h6 class="text-dark Animation-inCard montserrat">0878</h6>
+          <h6 class="text-dark Animation-inCard montserrat">{{ $auth.user.phone_number }}</h6>
         </div>
       </div>
     </nuxt-link>
