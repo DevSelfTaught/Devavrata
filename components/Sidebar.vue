@@ -10,13 +10,48 @@
         id="iconSidenav"
       ></i>
       <a class="navbar-brand m-0" href="/">
-        <h4 class="ms-1 font-weight-bold text-white">InfraNote.</h4>
+        <h4 class="ms-1 font-weight-bold text-white">Okaa-san</h4>
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2" />
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
       <ul class="navbar-nav">
+        <!-- dashboard -->
         <li class="nav-item">
+          <nuxt-link class="nav-link text-white" to="/">
+            <div
+              class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+            >
+            <i class="material-icons-round opacity-10">dashboard</i>
+            </div>
+            <span class="nav-link-text">Dashboard</span>
+          </nuxt-link>
+        </li>
+
+        <!-- pegawai list -->
+        <li class="nav-item">
+          <nuxt-link class="nav-link text-white" to="/pegawai">
+            <div
+              class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+            >
+              <i class="material-icons opacity-10">face_6</i>
+            </div>
+            <span class="nav-link-text ms-1">Pegawai</span>
+          </nuxt-link>
+        </li>
+
+        <!-- pegawai list -->
+        <li class="nav-item">
+          <nuxt-link class="nav-link text-white" to="/location">
+            <div
+              class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+            >
+              <i class="material-icons opacity-10">location_on</i>
+            </div>
+            <span class="nav-link-text ms-1">Location</span>
+          </nuxt-link>
+        </li>
+        <!-- <li class="nav-item">
           <a
             data-bs-toggle="collapse"
             href="#dashboardsExamples"
@@ -91,8 +126,8 @@
               </li>
             </ul>
           </div>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a
             data-bs-toggle="collapse"
             href="#report"
@@ -177,8 +212,8 @@
             </div>
             <span class="nav-link-text ms-1">Accounts</span>
           </nuxt-link>
-        </li>
-        <li class="nav-item mt-3">
+        </li> -->
+        <!-- <li class="nav-item mt-3">
           <h6
             class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8"
           >
@@ -204,7 +239,7 @@
             </div>
             <span class="nav-link-text ms-1">Report Today</span>
           </nuxt-link>
-        </li>
+        </li> -->
       </ul>
     </div>
   </aside>

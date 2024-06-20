@@ -2,7 +2,7 @@ let development = process.env.NODE_ENV !== 'production'
 export default {
   server: {
     host: "0.0.0.0",
-    port: 9000
+    port: 1010
   },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -12,7 +12,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'infranote',
+    title: 'Devavrata Sinergi - Office',
     htmlAttrs: {
       lang: 'en'
     },
@@ -29,7 +29,7 @@ export default {
     ],
     script: [
       { src: "https://kit.fontawesome.com/42d5adcbca.js", crossorigin: "anonymous" },
-
+      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', type: 'text/javascript' },
     ]
   },
 
@@ -54,6 +54,8 @@ export default {
     dirs: [
       '~/components',
       '~/components/dashboard',
+      '~/components/pegawai',
+      '~/components/location',
       '~/components/dashboard/request',
     ]
   },
@@ -72,7 +74,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://jbdp34jfc1.execute-api.ap-southeast-1.amazonaws.com/prod/',
+    baseURL: 'https://816qzlgink.execute-api.ap-southeast-1.amazonaws.com/prod/',
     mode: "cors"
   },
 
@@ -107,10 +109,10 @@ export default {
         },
         // api yang dipanggil
         endpoints: {
-          login: { url: '/signin-account', method: 'post' },
-          refresh: { url: '/refresh-token', method: 'post' },
-          user: { url: '/get-account', method: 'get' },
-          logout: { url: '/signout-account', method: 'post' }
+          login: { url: 'signin-account', method: 'post' },
+          refresh: { url: 'refresh-token', method: 'post' },
+          user: { url: 'get-account', method: 'get' },
+          logout: { url: 'signout-account', method: 'post' }
         },
         // autoLogout: false
       }

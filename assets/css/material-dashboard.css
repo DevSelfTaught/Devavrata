@@ -44,7 +44,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #e91e63;
+  --bs-primary: #E52D51;
   --bs-secondary: #7b809a;
   --bs-success: #4caf50;
   --bs-info: #1a73e8;
@@ -2800,7 +2800,7 @@ fieldset:disabled .btn {
 
 .btn-primary {
   --bs-btn-color: #000;
-  --bs-btn-bg: #00337c;
+  --bs-btn-bg: #E52D51;
   --bs-btn-border-color: #043d8d;
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: #1057bb;
@@ -9872,7 +9872,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  background-color: #e91e63 !important;
+  background-color: #E52D51 !important;
 }
 
 .bg-secondary {
@@ -23716,7 +23716,7 @@ hr.horizontal.gray-light {
 }
 
 .sidenav {
-  z-index: 9999;
+  z-index: 99;
 }
 
 .sidenav .navbar-brand,
