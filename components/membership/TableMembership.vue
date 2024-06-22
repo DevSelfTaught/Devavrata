@@ -1,17 +1,17 @@
 <template>
   <div>
-    <ModalPegawai />
-    <div class="card my-4">
+    <ModalMembership />
+    <div class="card mt-4 mb-3">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-primary shadow-dark border-radius-lg pt-3 pb-3">
           <div class="px-4 row">
             <div class="col-12 col-md-4 d-flex align-items-center mb-3 mb-md-0">
-              <h6 class="text-white mb-0">List Pegawai</h6>
+              <h6 class="text-white mb-0">Membership</h6>
             </div>
             <div class="col-12 col-md-8">
               <div class="d-flex gap-3 align-items-center justify-content-end">
                 <button type="button" class="btn btn-success py-1 px-3 mb-0" data-bs-toggle="modal"
-                  data-bs-target="#inputForm">
+                  data-bs-target="#inputMembership">
                   Insert
                 </button>
               </div>
@@ -25,57 +25,40 @@
             <thead>
               <tr>
                 <th class="text-uppercase text-black text-xxs font-weight-bolder ps-4">
-                  Nama
+                  Date
                 </th>
-                <th class="text-uppercase text-black text-xxs font-weight-bolder ps-2">
-                  Phone
+                <th class="text-uppercase text-black text-xxs font-weight-bolder  ps-2 pe-2">
+                  Time
                 </th>
                 <th class="text-uppercase text-black text-xxs font-weight-bolder ps-2 pe-2">
                   Address
                 </th>
                 <th class="text-uppercase text-black text-xxs font-weight-bolder ps-2 pe-2">
-                  Role
-                </th>
-                <th class="text-uppercase text-black text-xxs font-weight-bolder ps-2 pe-2">
-                  Status
-                </th>
-                <th class="text-uppercase text-end text-black text-xxs font-weight-bolder ps-2">
-                  Action
+                  Amount
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(data, i) in account" :key="i">
+              <tr v-for="(data, i) in membership" :key="i">
                 <td class="align-middle">
-                  <span class="text-secondary text-capitalize text-xs font-weight-bold ps-3">{{
-                    data.Nama
-                    }}</span>
+                  <span class="text-secondary text-xs font-weight-bold ps-3 text-capitalize">{{
+                    data.CreatedAt.split(',')[0]
+                  }}</span>
                 </td>
                 <td class="align-middle">
                   <span class="text-secondary text-xs font-weight-bold">{{
-                    data.PhoneNumber
-                    }}</span>
-                </td>
-                <td class="align-middle">
-                  <span class="text-secondary text-capitalize text-xs font-weight-bold">{{
-                    data.Address
-                    }}</span>
-                </td>
-                <td class="align-middle">
-                  <span class="text-secondary text-capitalize text-xs font-weight-bold">{{
-                    data.Role
-                    }}</span>
+                    data.CreatedAt.split(',')[1]
+                  }}</span>
                 </td>
                 <td class="align-middle">
                   <span class="text-secondary text-xs font-weight-bold">{{
-                    data.Status
-                    }}</span>
+                    data.SK ? data.SK.split('#')[0] : '-'
+                  }}</span>
                 </td>
-                <td class="align-middle text-end pe-4">
-                  <i class="material-icons rounded btn btn-sm bg-warning mb-0 ms-auto text-white cursor-pointer"
-                    @click="edit(data.SK)">edit</i>
-                  <i class="material-icons rounded btn btn-sm bg-danger mb-0 ms-auto text-white cursor-pointer"
-                    @click="remove(data.SK)">delete</i>
+                <td class="align-middle">
+                  <span class="text-secondary text-xs font-weight-bold">{{
+                    data.Amount ? nominal(data.Amount) : '-'
+                  }}</span>
                 </td>
               </tr>
             </tbody>
@@ -83,17 +66,43 @@
         </div>
       </div>
     </div>
+    <!-- <div class="btn-group text-center float-end pt-1 pb-5" role="group">
+      <button @click="page = 1" :disabled="page === 1" type="button" class="btn btn-sm btn-primary text-xxs">
+        &laquo;
+      </button>
+      <button @click="page--" :disabled="page === 1" type="button" class="btn btn-sm btn-primary text-xxs">
+        Prev
+      </button>
+      <button class="btn btn-sm btn-dark  text-xxs disabled">{{ `${page}` }}</button>
+      <button @click="page++" :disabled="page >= Math.ceil(table.length / perPage)"
+        class="btn btn-sm btn-primary  text-xxs">
+        Next
+      </button>
+      <button @click="page = Math.ceil(table.length / perPage)" :disabled="page >= Math.ceil(table.length / perPage)"
+        type="button" class="btn btn-sm btn-primary text-xxs">
+        &raquo;
+      </button>
+    </div> -->
   </div>
 </template>
 
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex'
 export default {
+  data() {
+    return {
+      search: "",
+      page: 1,
+      perPage: 10,
+      table: "",
+    }
+  },
   computed: {
-    ...mapState('pegawai', ['account'])
+    ...mapState('membership', ['member', 'membership']),
   },
   methods: {
-    ...mapMutations('pegawai', ['edit']),
+    ...mapActions('member', ['remove']),
+    ...mapMutations('member', ['edit']),
     nominal(a) {
       return new Intl.NumberFormat("id-ID", {
         currency: "IDR",

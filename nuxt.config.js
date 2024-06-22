@@ -56,6 +56,8 @@ export default {
       '~/components/dashboard',
       '~/components/pegawai',
       '~/components/location',
+      '~/components/member',
+      '~/components/membership',
       '~/components/dashboard/request',
     ]
   },

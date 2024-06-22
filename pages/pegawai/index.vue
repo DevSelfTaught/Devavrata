@@ -3,7 +3,6 @@
     <div class="row">
       <div class="col-12">
         <TablePegawai />
-        <ModalPegawai />
       </div>
     </div>
     <!-- <div

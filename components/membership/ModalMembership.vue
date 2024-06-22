@@ -1,25 +1,37 @@
 <template>
   <div>
     <!-- Modal input -->
-    <div class="modal fade" id="inputLocation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="inputMembership" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">
-          <form @submit.prevent="input"  id="input">
+          <form @submit.prevent="input" id="input">
             <div class="modal-header">
               <h1 class="modal-title fs-5 text-capitalize">
-                input Location
+                Create Membership
               </h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="mb-3">
-                <label for="items" class="form-label">Nama Alias</label>
-                <input class="form-control" id="items" name="SK" type="text" />
+                <label for="items" class="form-label">Nama</label>
+                <select class="form-select" name="Nama" aria-label="Default select example">
+                  <option value="" selected disabled>Open this select menu</option>
+                  <option class="text-capitalize" :class="data.Status === 'active' ? 'text-success' : 'text-danger'" v-for="(data, index) in member" :key="index" :value="data.Nama">
+                    {{ data.Nama }} - {{ data.Status }}
+                  </option>
+                </select>
               </div>
               <div class="mb-3">
-                <label for="address" class="form-label">Adress</label>
-                <textarea class="form-control" id="address" name="Address"></textarea>
+                <label for="items" class="form-label">Nama</label>
+                <select class="form-select" name="location" aria-label="Default select example">
+                  <option value="" selected>Open this select menu</option>
+                  <option v-for="(data, index) in location" :key="index" :value="data.SK">{{ data.SK }}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="items" class="form-label">Amount</label>
+                <input class="form-control" id="items" name="Amount" type="number" required />
               </div>
             </div>
             <div class="modal-footer">
@@ -45,10 +57,10 @@
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   computed: {
-    ...mapState('location', ['btn'])
+    ...mapState('membership', ['btn', 'member', 'location'])
   },
   methods: {
-    ...mapActions('location', ['input'])
+    ...mapActions('membership', ['input'])
   },
 };
 </script>

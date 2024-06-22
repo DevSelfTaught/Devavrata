@@ -1,3 +1,5 @@
 export default () => ({
-  location: ''
+  location: '',
+  btn: true,
+  updateData: ''
 })

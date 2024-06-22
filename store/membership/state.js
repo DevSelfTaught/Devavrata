@@ -1,5 +1,7 @@
 export default () => ({
-  account: '',
+  membership: '',
+  member: '',
+  location: '',
   btn: true,
   updateData: ''
 })

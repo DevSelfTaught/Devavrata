@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ModalLocation />
     <div class="card my-4">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-primary shadow-dark border-radius-lg pt-3 pb-3">
@@ -10,7 +11,7 @@
             <div class="col-12 col-md-8">
               <div class="d-flex gap-3 align-items-center justify-content-end">
                 <button type="button" class="btn btn-success py-1 px-3 mb-0" data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop">
+                  data-bs-target="#inputLocation">
                   Insert
                 </button>
               </div>
@@ -23,8 +24,8 @@
           <table class="table align-items-center mb-0" id="tableau">
             <thead>
               <tr>
-                <th class="text-uppercase text-black text-xxs font-weight-bolder ps-2">
-                  Name
+                <th class="text-uppercase text-black text-xxs font-weight-bolder ps-4">
+                  Nama
                 </th>
                 <th class="text-uppercase text-black text-xxs font-weight-bolder ps-2 pe-2">
                   Address
@@ -37,19 +38,18 @@
             <tbody>
               <tr v-for="(data, i) in location" :key="i">
                 <td class="align-middle">
-                  <span class="text-secondary text-xs font-weight-bold ps-3">{{
+                  <span class="text-secondary text-capitalize text-xs font-weight-bold ps-3">{{
                     data.SK
                     }}</span>
                 </td>
                 <td class="align-middle">
-                  <span class="text-secondary text-xs font-weight-bold">{{
+                  <span class="text-secondary text-capitalize text-xs font-weight-bold">{{
                     data.Address
                     }}</span>
                 </td>
                 <td class="align-middle text-end pe-4">
-                  <i class="material-icons ms-auto text-info cursor-pointer" @click="edit(i)">edit</i>
-                  <i class="material-icons ms-auto text-danger cursor-pointer"
-                    @click="remove(data.kode, data.nama_barang)">delete</i>
+                  <i class="material-icons rounded btn btn-sm bg-danger mb-0 ms-auto text-white cursor-pointer"
+                    @click="remove(data.SK)">delete</i>
                 </td>
               </tr>
             </tbody>
@@ -67,6 +67,7 @@ export default {
     ...mapState('location', ['location'])
   },
   methods: {
+    ...mapActions('location', ['remove']),
     nominal(a) {
       return new Intl.NumberFormat("id-ID", {
         currency: "IDR",
@@ -77,4 +78,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+i {
+  padding: 6px !important;
+  font-size: 16px !important;
+}
+</style>

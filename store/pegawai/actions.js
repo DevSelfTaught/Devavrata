@@ -39,5 +39,38 @@ export default {
         });
       }
     }
-  }
+  },
+  async updateForm({ commit, state }, event) {
+    commit('btn')
+    const data = Object.fromEntries(new FormData(event.target))
+    const sk = state.updateData.SK
+    try {
+      const result = await this.$axios.$put(
+        `update-pegawai?sk=${sk}`,
+        data
+      );
+      if (result) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          text: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        data['SK'] = sk
+        commit('btn')
+        commit('update', data);
+      }
+    } catch (error) {
+      commit('btn')
+      console.log(error);
+      Swal.fire({
+        text: error,
+        icon: "error",
+        timer: 3000,
+        timerProgressBar: false,
+        showConfirmButton: false,
+      });
+    }
+  },
 }

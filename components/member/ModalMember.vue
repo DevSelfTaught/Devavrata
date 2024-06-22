@@ -1,42 +1,33 @@
 <template>
   <div>
     <!-- Modal input -->
-    <div class="modal fade" id="inputForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="inputMember" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">
-          <form @submit.prevent="inputForm" id="formInput">
+          <form @submit.prevent="input"  id="input">
             <div class="modal-header">
-              <h1 class="modal-title fs-5 text-capitalize" id="staticBackdropLabel">
-                input pegawai
+              <h1 class="modal-title fs-5 text-capitalize">
+                input Member
               </h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="mb-3">
                 <label for="items" class="form-label">Nama</label>
-                <input class="form-control" id="items" name="name" type="text" />
+                <input class="form-control" id="items" name="name" type="text" required />
               </div>
               <div class="mb-3">
                 <label for="items" class="form-label">Username</label>
-                <input class="form-control" id="items" name="username" type="text" />
+                <input class="form-control" id="items" name="username" type="text" required/>
               </div>
               <div class="mb-3">
-                <label for="nominal" class="form-label">Phone</label>
-                <input class="form-control" id="nominal" name="phone" type="number" />
+                <label for="items" class="form-label">Phone</label>
+                <input class="form-control" id="items" name="phone" type="number" required/>
               </div>
               <div class="mb-3">
-                <label for="items" class="form-label">Adress</label>
-                <textarea class="form-control" id="items" name="address"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <select class="form-select" name="role" id="role">
-                  <option value="">-- Choose ---</option>
-                  <option value="manager">Manager</option>
-                  <option value="kasir">Kasir</option>
-                  <option value="member">Member</option>
-                </select>
+                <label for="address" class="form-label">Adress</label>
+                <textarea class="form-control" id="address" name="address" required></textarea>
               </div>
             </div>
             <div class="modal-footer">
@@ -55,6 +46,7 @@
         </div>
       </div>
     </div>
+
     <!-- Modal update -->
     <div class="modal fade" id="updateForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -70,11 +62,19 @@
             <div class="modal-body">
               <div class="mb-3">
                 <label for="items" class="form-label">Nama</label>
-                <input class="form-control" id="items" name="Nama" type="text" :value="updateData?.Nama" />
+                <input class="form-control" id="items" name="Nama" type="text" required :value="updateData?.Nama" />
               </div>
               <div class="mb-3">
-                <label for="items" class="form-label">Adress</label>
-                <textarea class="form-control" id="items" name="Address" :value="updateData?.Address"></textarea>
+                <label for="items" class="form-label">Phone</label>
+                <input class="form-control" id="items" name="PhoneNumber" type="text" required  :value="updateData?.PhoneNumber"/>
+              </div>
+              <div class="mb-3">
+                <label for="items" class="form-label">Amount</label>
+                <input class="form-control" id="items" name="Amount" type="number" required :value="updateData?.Amount"/>
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Adress</label>
+                <textarea class="form-control" id="address" name="Address" required :value="updateData?.Address"></textarea>
               </div>
             </div>
             <div class="modal-footer">
@@ -97,19 +97,19 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   computed: {
-    ...mapState('pegawai', ['btn', 'updateData']),
+    ...mapState('member', ['btn', 'updateData'])
   },
   methods: {
-    ...mapActions('pegawai', ['inputForm', 'updateForm'])
+    ...mapActions('member', ['input', 'updateForm'])
   },
 };
 </script>
 
 <style scoped>
-/* .modal {
+.modal {
   z-index: 9999 !important;
-} */
+}
 </style>

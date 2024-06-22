@@ -11,7 +11,7 @@ export default {
           expires: 1,
         });
         commit('btn')
-        this.$router.push("/");
+        this.$router.push("/pegawai");
       }
     } catch (error) {
       commit('btn')

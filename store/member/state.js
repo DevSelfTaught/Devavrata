@@ -1,5 +1,5 @@
 export default () => ({
-  account: '',
+  member: '',
   btn: true,
   updateData: ''
 })
