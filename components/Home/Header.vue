@@ -11,17 +11,17 @@
         </h5>
       </div>
     </div>
-      
-      <div class="">
+
+      <!-- <div class="">
         <Sidebar/>
-      </div>
+      </div> -->
     </div>
   </template>
-  
+
   <script>
   export default {};
   </script>
-  
+
   <style scoped>
   h6 {
     font-size: 14px;

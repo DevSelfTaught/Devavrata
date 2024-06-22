@@ -14,17 +14,12 @@
                 <div class="col-sm-4 bg-c-lite-green user-profile">
                   <div class="card-block text-center text-white">
                     <div class="m-b-25">
-                      <img
-                        src="https://img.icons8.com/bubbles/100/000000/user.png"
-                        class="img-radius"
-                        alt="User-Profile-Image"
-                      />
+                      <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
+                        alt="User-Profile-Image" />
                     </div>
-                    <h6 class="f-w-600">{{ $auth.user.name }}</h6>
-                    <p>{{ $auth.user['custom:Jabatan'] }}</p>
-                    <i
-                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
-                    ></i>
+                    <h6 class="f-w-600">{{ Nama }}</h6>
+                    <p>{{ Role }}</p>
+                    <i class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                   </div>
                 </div>
                 <div class="col-sm-8">
@@ -34,16 +29,24 @@
                     </h6>
                     <div class="row">
                       <div class="col-sm-6">
-                        <p class="m-b-10 f-w-600">Email</p>
-                        <h6 class="text-muted f-w-400">{{ $auth.user.email }}</h6>
+                        <p class="mb-1 f-w-600">Username</p>
+                        <h6 class="text-muted f-w-400">{{ Username }}</h6>
                       </div>
                       <div class="col-sm-6">
-                        <p class="m-b-10 f-w-600">Phone</p>
-                        <h6 class="text-muted f-w-400">{{ $auth.user.phone_number }}</h6>
+                        <p class="mb-1 f-w-600">Code</p>
+                        <h6 class="text-muted f-w-400">{{ Code }}</h6>
+                      </div>
+                      <div class="col-sm-6">
+                        <p class="mb-1 f-w-600">Phone</p>
+                        <h6 class="text-muted f-w-400">{{ Phone }}</h6>
                       </div>
                       <div class="col-sm-6 pt-lg-3">
-                        <p class="m-b-10 f-w-600">Jabatan</p>
-                        <h6 class="text-muted f-w-400">{{ $auth.user['custom:Jabatan'] }}</h6>
+                        <p class="mb-1 f-w-600">Amount</p>
+                        <h6 class="text-muted f-w-400">{{ nominal(Amount) }}</h6>
+                      </div>
+                      <div class="col-sm-6">
+                        <p class="mb-1 f-w-600">Status</p>
+                        <h6 class="text-muted f-w-400">{{ Status }}</h6>
                       </div>
                     </div>
                   </div>
@@ -52,8 +55,8 @@
             </div>
           </div>
         </div>
-        <div class="d-flex pt-5 justify-content-center">
-          <div class="col-xl-6 col-md-12">
+        <!-- <div class="d-flex pt-0 justify-content-center">
+          <div class="col-12 col-xl-6 col-md-6">
             <div class="card user-card-full shadow">
               <div class="row m-l-0 m-r-0">
                 <div class="col-sm-12">
@@ -64,34 +67,22 @@
                     <div class="row">
                       <form>
                         <div class="mb-3 py-2">
-                          <input
-                            type="password"
+                          <input type="password"
                             class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                            name="passwordlama"
-                            id="passwordlama"
-                            aria-describedby="helpId"
-                            placeholder="Password Lama"
-                          />
+                            name="passwordlama" id="passwordlama" aria-describedby="helpId"
+                            placeholder="Password Lama" />
                         </div>
                         <div class="mb-3 py-2">
-                          <input
-                            type="password"
+                          <input type="password"
                             class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                            name="konfimasipasswordlama"
-                            id="konfimasipasswordlama"
-                            aria-describedby="helpId"
-                            placeholder="Konfirmasi Password Lama"
-                          />
+                            name="konfimasipasswordlama" id="konfimasipasswordlama" aria-describedby="helpId"
+                            placeholder="Konfirmasi Password Lama" />
                         </div>
                         <div class="mb-3 py-2">
-                          <input
-                            type="password"
+                          <input type="password"
                             class="form-control border-0 border-bottom border-danger opacity-50 rounded-0 Poppins"
-                            name="passwordbaru"
-                            id="passwordbaru"
-                            aria-describedby="helpId"
-                            placeholder="Password Baru"
-                          />
+                            name="passwordbaru" id="passwordbaru" aria-describedby="helpId"
+                            placeholder="Password Baru" />
                         </div>
                       </form>
                     </div>
@@ -100,14 +91,58 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState, mapActions, mapMutations } from 'vuex'
+export default {
+  data() {
+    return {
+      Nama: '',
+      Code: '',
+      Role: '',
+      Phone: '',
+      Address: '',
+      Status: '',
+      Amount: '',
+      Username: ''
+    }
+  },
+  computed: {
+    ...mapState('home', ['profile']),
+  },
+  watch: {
+    profile: 'setData'
+  },
+  mounted() {
+    this.refresh();
+  },
+  methods: {
+    refresh() {
+      this.$store.dispatch('home/renderPage')
+    },
+    setData() {
+      this.Nama = this.profile[0].Nama
+      this.Code = this.profile[0].Code
+      this.Role = this.profile[0].Role
+      this.Phone = this.profile[0].PhoneNumber
+      this.Address = this.profile[0].Address
+      this.Status = this.profile[0].Status
+      this.Amount = this.profile[0].Amount
+      this.Username = this.profile[0].Username
+    },
+    nominal(a) {
+      return new Intl.NumberFormat("id-ID", {
+        currency: "IDR",
+        minimumFractionDigits: 0,
+      }).format(a);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -132,13 +167,11 @@ export default {};
 }
 
 .bg-c-lite-green {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#8f0c26),
-    to(#e52d51)
-  );
+  background: -webkit-gradient(linear,
+      left top,
+      right top,
+      from(#8f0c26),
+      to(#e52d51));
   background: linear-gradient(to right, #e52d51, #8f0c26);
 }
 

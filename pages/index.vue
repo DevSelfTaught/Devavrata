@@ -5,10 +5,10 @@
         <div class="row">
           <div class="col-12">
             <Header />
-            <Menu />
-            <ModalMasuk />
+            <!-- <Menu /> -->
+            <!-- <ModalMasuk />
             <ModalKeluar />
-            <ModalPerizinan />
+            <ModalPerizinan /> -->
           </div>
         </div>
         <div class="row ">
@@ -17,12 +17,12 @@
           </div>
           <div class="col-12 col-xl-4 ">
             <RiwayatAbsensi />
-            </div>
           </div>
         </div>
-        
       </div>
+
     </div>
+  </div>
 </template>
 
 <script>
@@ -30,6 +30,17 @@ import 'animate.css';
 
 export default {
   layout: "utama",
+  // async asyncData({store}) {
+  //   store.dispatch('home/renderPage')
+  // },
+  mounted () {
+    this.refresh();
+  },
+  methods: {
+    refresh() {
+      this.$store.dispatch('home/renderPage')
+    }
+  },
 };
 </script>
 
@@ -44,6 +55,7 @@ export default {
     width: 100% !important;
   }
 }
+
 /* tablet */
 @media screen and (max-width: 991px) {
   .media {

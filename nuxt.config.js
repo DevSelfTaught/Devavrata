@@ -7,7 +7,7 @@ export default {
 
   server: {
     host: "0.0.0.0",
-    port: "3000"
+    port: "1020"
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -76,7 +76,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: development ? process.env.API_DEV_URL: process.env.API_PROD_URL,
+    baseURL: 'https://816qzlgink.execute-api.ap-southeast-1.amazonaws.com/prod/',
+    mode: "cors"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
