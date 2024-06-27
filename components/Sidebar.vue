@@ -4,7 +4,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="/">
+      <a class="navbar-brand m-0" href="/pegawai">
         <h4 class="ms-1 font-weight-bold text-white">Okaa-san</h4>
       </a>
     </div>
@@ -265,11 +265,16 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .nuxt-link-exact-active {
-  background-image: linear-gradient(45deg, #03c988, #05a06c);
+  background-image: linear-gradient(45deg, #ffffff, #ffffff);
+  color: #000 !important;
+}
+
+.nuxt-link-exact-active i {
+  color: #000 !important;
 }
 
 .sidenav {
-  background: #00337c;
+  background: #E52D51 !important;
   font-family: "Poppins", sans-serif;
 }
 

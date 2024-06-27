@@ -20,7 +20,7 @@
               </div>
             </a>
           </li>
-          <li class="nav-item dropdown px-3 d-flex align-items-center">
+          <!-- <li class="nav-item dropdown px-3 d-flex align-items-center">
             <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
               aria-expanded="false">
               <i class="fa fa-bell cursor-pointer"></i>
@@ -99,12 +99,12 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item px-3 d-flex align-items-center">
+          </li> -->
+          <!-- <li class="nav-item px-3 d-flex align-items-center">
             <nuxt-link to="/settings" class="nav-link text-body p-0">
               <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer" aria-hidden="true"></i>
             </nuxt-link>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

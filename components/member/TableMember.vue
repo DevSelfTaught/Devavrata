@@ -151,4 +151,8 @@ i {
   padding: 6px !important;
   font-size: 16px !important;
 }
+
+input {
+  border: none;
+}
 </style>
